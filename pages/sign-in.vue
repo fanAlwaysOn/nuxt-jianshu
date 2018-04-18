@@ -1,5 +1,59 @@
 <template>
-    <div>登录</div>
+    <div class="sign">
+        <div class="logo">
+            <nuxt-link to="/">
+                <img src="~assets/img/logo.png">
+            </nuxt-link>
+        </div>
+        <div class="main">
+            <div class="title">
+                <h4>
+                    <nuxt-link class="active" to="/sign-in">登录</nuxt-link>
+                    <b>·</b>
+                    <nuxt-link class="activea" to="/sign-up">注册</nuxt-link>
+                </h4>
+            </div>
+            <div class="js-form">
+                <form action="">
+                    <div class="input-prepend">
+                        <input type="text" placeholder="手机号或邮箱">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="input-prepend">
+                        <input type="text" placeholder="密码">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="remeber">
+                        <input type="checkbox">
+                        <span>记住我</span>
+                    </div>
+                    <nuxt-link class="help" to="/">登录遇到问题</nuxt-link>
+                    <!--<input type="button" class="btn btn-primary" value="登录">-->
+                    <button>登录</button>
+                </form>
+            </div>
+            <div class="more-sign">
+                <p>社交账号登录</p>
+                <ul>
+                    <li>
+                        <nuxt-link to="/">
+                            <i class="fa fa-weixin"></i>
+                        </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/">
+                            <i class="fa fa-weibo"></i>
+                        </nuxt-link>
+                    </li>
+                    <li>
+                        <nuxt-link to="/">
+                            <i class="fa fa-qq"></i>
+                        </nuxt-link>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
