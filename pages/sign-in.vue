@@ -27,9 +27,11 @@
                         <input type="checkbox">
                         <span>记住我</span>
                     </div>
-                    <nuxt-link class="help" to="/">登录遇到问题</nuxt-link>
-                    <!--<input type="button" class="btn btn-primary" value="登录">-->
-                    <button>登录</button>
+                    <div class="help">
+                        <nuxt-link to="/">登录遇到问题</nuxt-link>
+                    </div>
+
+                    <button class="sign-in-btn">登录</button>
                 </form>
             </div>
             <div class="more-sign">
