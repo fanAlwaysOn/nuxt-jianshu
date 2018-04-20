@@ -1,7 +1,8 @@
 <template>
     <div>
         <my-header></my-header>
-        <p>主体内容</p>
+        <p style="height: 300px;background: pink">主体内容</p>
+
     </div>
 </template>
 <script>

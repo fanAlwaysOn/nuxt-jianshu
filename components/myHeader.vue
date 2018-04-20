@@ -2,20 +2,23 @@
     <div style="height:100%">
         <nav class="navbar navbar-fixed-top">
             <div class="width-limit">
+                <!--logo-->
                 <nuxt-link class="logo" to="/">
                     <img src="~/assets/img/nav-logo.png">
                 </nuxt-link>
+                <!--右上角，写文章-->
                 <nuxt-link to="/write" class="write-btn">
                     <i class="fa fa-edit"></i>
                     写文章
                 </nuxt-link>
-                <div class="user" @mouseleave="isShow=false">
-                    <div class="drop-down" @mouseenter="isShow=true">
+                <!--登录用户信息-->
+                <div class="user" @mouseleave="UserShow=false">
+                    <div class="drop-down" @mouseenter="UserShow=true">
                         <nuxt-link to="/u/123" class="avatar">
                             <img src="~/assets/img/default-avatar.jpg">
                         </nuxt-link>
                     </div>
-                    <ul class="drop-menu" v-show="isShow">
+                    <ul class="drop-menu" v-show="UserShow">
                         <li>
                             <nuxt-link to="">
                                 <i class="fa fa-home"></i>
@@ -48,6 +51,91 @@
                         </li>
                     </ul>
                 </div>
+                <!--右上角，登录注册-->
+                <!--导航部分-->
+                <div class="container">
+                    <!--隐藏菜单按钮-->
+                    <div class="menu" @click="showMenuList()">
+                        <i class="fa fa-align-justify"></i>
+                    </div>
+                    <!--隐藏的菜单选项-->
+                    <!--<transition name="fade">-->
+                    <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
+                        <ul class="hidden-menu-list" v-show="menuListShow">
+                            <li>发现</li>
+                            <li>关注</li>
+                            <li>消息</li>
+                            <li>
+                                <form action="">
+                                    <input type="text" placeholder="搜索" class="menu-search">
+                                    <a href="#" class="search-btn">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </transition>
+                    <ul class="nav-list">
+                        <li>
+                            <nuxt-link to="/" class="active">
+                                <i class="fa fa-compass"></i>
+                                <span>发现</span>
+                            </nuxt-link>
+                        </li>
+                        <li>
+                            <nuxt-link to="/">
+                                <i class="fa fa-book"></i>
+                                <span>关注</span>
+                            </nuxt-link>
+                        </li>
+                        <li class="user" @mouseover="notifyShow=true" @mouseout="notifyShow=false">
+                            <nuxt-link to="/">
+                                <i class="fa fa-bell-o"></i>
+                                <span>消息</span>
+                            </nuxt-link>
+                            <ul class="drop-menu" v-show="notifyShow">
+                                <li>
+                                    <nuxt-link to="">
+                                        <i class="fa fa-comment-o"></i>
+                                        评论
+                                    </nuxt-link>
+                                </li>
+                                <li>
+                                    <nuxt-link to="">
+                                        <i class="fa fa-envelope-o"></i>
+                                        简讯
+                                    </nuxt-link>
+                                </li>
+                                <li>
+                                    <nuxt-link to="">
+                                        <i class="fa fa-plus-square-o"></i>
+                                        关注
+                                    </nuxt-link>
+                                </li>
+                                <li>
+                                    <nuxt-link to="">
+                                        <i class="fa fa-heart-o"></i>
+                                        喜欢和赞
+                                    </nuxt-link>
+                                </li>
+                                <li>
+                                    <nuxt-link to="">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                        其它提醒
+                                    </nuxt-link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="search">
+                            <form method="post">
+                                <input type="text" placeholder="搜索" class="search-input">
+                                <a href="#" class="search-btn">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
@@ -57,12 +145,39 @@
         name: "myHeadder",
         data: function () {
             return {
-                isShow: false,
+                UserShow: false,
+                notifyShow: false,
+                menuListShow: false,
+                // menuListClickNum:0,
             }
         },
+        methods: {
+            showMenuList: function () {
+                this.menuListShow = !this.menuListShow;
+                // this.menuListClickNum++;
+                // var el = document.querySelector(".hidden-menu-list");
+                // if(this.menuListClickNum%2 == 0){
+                //     el.style.height = "0";
+                // }else{
+                //     el.style.height = "206px";
+                // }
+            }
+        }
     }
 </script>
 <style scoped>
+    .fade-enter-active, .fade-leave-active {
+        transition: all .5s;
+    }
+
+    .fade-enter, .fade-leave-to {
+        height: 0px;
+    }
+
+    .fade-enter-to, .fade-leave {
+        height: 206px;
+    }
+
     nav {
         height: 56px;
         width: 100%;
@@ -120,6 +235,7 @@
     nav .write-btn:hover {
         background-color: #ec6149;
     }
+
     nav .user {
         position: relative;
         float: right;
@@ -154,10 +270,6 @@
         border: 1px solid #eee;
     }
 
-    nav .user .drop-down {
-
-    }
-
     nav .user .drop-menu {
         position: absolute;
         left: 0;
@@ -167,6 +279,7 @@
         margin: 0;
         padding: 10px 0px;
         font-size: 15px;
+        z-index: 9999;
     }
 
     nav .user .drop-menu li a {
@@ -186,5 +299,228 @@
         height: 20px;
         font-size: 20px;
         display: inline-block;
+    }
+
+    /********隐藏********/
+    nav .menu {
+        display: none;
+    }
+
+    nav .menu > i {
+        padding: 5px;
+    }
+
+    nav .menu > i:hover {
+        padding: 5px;
+        border: 1px solid #eee;
+        background: #eee;
+    }
+
+    nav .hidden-menu-list {
+        width: 100%;
+        margin: 0;
+        z-index: 999;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: fixed;
+        left: 0;
+        top: 56px;
+    }
+
+    nav .hidden-menu-list li {
+        width: 100%;
+        font-size: 20px;
+        color: gray;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav .hidden-menu-list li:nth-of-type(-n+3):hover {
+        background: #eee;
+        cursor: pointer;
+    }
+
+    nav .hidden-menu-list li input {
+        height: 38px;
+        width: 100%;
+        font-size: 14px;
+        padding: 0 40px 0 20px;
+        border: 1px solid #eee;
+        background: #eee;
+        border-radius: 40px;
+        position: relative;
+    }
+
+    nav .hidden-menu-list .search-btn {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: 14px;
+        right: 19px;
+        color: #969696;
+        text-align: center;
+        padding: 0;
+    }
+
+    nav .hidden-menu-list .menu-search:focus + .search-btn {
+        background: rgb(150, 150, 150);
+        color: #fff;
+        border-radius: 50%;
+    }
+
+    nav .hidden-menu-list .menu-search i {
+        display: block !important;
+        margin: 0;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+
+    }
+
+    nav .nav-list {
+        margin: 0;
+    }
+
+    nav .nav-list:after {
+        content: '';
+        height: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+
+    nav .nav-list > li {
+        float: left;
+        margin-right: 5px;
+    }
+
+    nav .nav-list > li a {
+        display: block;
+        height: 56px;
+        /*line-height: 26px;*/
+        padding: 15px;
+    }
+
+    nav .nav-list > li a.active {
+        color: #ea6f5a;
+        background: none !important;
+    }
+
+    nav .nav-list > li a:hover {
+        background: #f5f5f5;
+    }
+
+    nav .nav-list > li a i {
+        margin-right: 5px;
+        font-size: 20px;
+    }
+
+    nav .nav-list .search {
+        padding-left: 15px;
+        margin-left: 10px;
+    }
+
+    nav .nav-list .search form {
+        position: relative;
+        margin-bottom: 20px;
+        top: 9px;
+    }
+
+    nav .nav-list .search form .search-input {
+        width: 240px;
+        height: 38px;
+        font-size: 14px;
+        padding: 0 40px 0 20px;
+        border: 1px solid #eee;
+        background: #eee;
+        border-radius: 40px;
+        transition: width .5s;
+    }
+
+    nav .nav-list .search form .search-input:focus {
+        width: 320px;
+    }
+
+    nav .nav-list .search form .search-input:focus + .search-btn {
+        background: #969696;
+        color: #fff;
+        border-radius: 50%;
+    }
+
+    nav .nav-list .search form .search-input:blur {
+        width: 240px;
+    }
+
+    nav .nav-list .search form .search-btn {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 4px;
+        right: 7px;
+        color: #969696;
+        text-align: center;
+        padding: 0;
+    }
+
+    nav .nav-list .search form .search-btn:hover {
+        background: none;
+    }
+
+    nav .nav-list .search form .search-btn i {
+        display: block !important;
+        margin: 0;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 1200px) {
+        nav .nav-list > li a > i {
+            display: none;
+        }
+
+        nav .nav-list .search-input {
+            width: 160px;
+        }
+
+        nav .nav-list .search form .search-input:focus {
+            width: 240px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        nav .nav-list li span {
+            display: none;
+        }
+
+        nav .nav-list li a i {
+            display: block;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav .nav-list {
+            display: none;
+        }
+
+        nav .menu {
+            display: block;
+            color: gray;
+            line-height: 56px;
+            font-size: 20px;
+        }
+
+        /*nav .hidden-menu-list{*/
+        /*display: block;*/
+        /*}*/
+    }
+
+    @media (min-width: 768px) {
+        nav .hidden-menu-list {
+            display: none;
+        }
     }
 </style>
