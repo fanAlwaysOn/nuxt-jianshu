@@ -54,87 +54,89 @@
                 <!--右上角，登录注册-->
                 <!--导航部分-->
                 <div class="container">
-                    <!--隐藏菜单按钮-->
-                    <div class="menu" @click="showMenuList()">
-                        <i class="fa fa-align-justify"></i>
-                    </div>
-                    <!--隐藏的菜单选项-->
-                    <!--<transition name="fade">-->
-                    <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
-                        <ul class="hidden-menu-list" v-show="menuListShow">
-                            <li>发现</li>
-                            <li>关注</li>
-                            <li>消息</li>
+                    <div class="row">
+                        <!--隐藏菜单按钮-->
+                        <div class="menu" @click="showMenuList()">
+                            <i class="fa fa-align-justify"></i>
+                        </div>
+                        <!--隐藏的菜单选项-->
+                        <!--<transition name="fade">-->
+                        <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
+                            <ul class="hidden-menu-list" v-show="menuListShow">
+                                <li>发现</li>
+                                <li>关注</li>
+                                <li>消息</li>
+                                <li>
+                                    <form action="">
+                                        <input type="text" placeholder="搜索" class="menu-search">
+                                        <a href="#" class="search-btn">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </transition>
+                        <ul class="nav-list">
                             <li>
-                                <form action="">
-                                    <input type="text" placeholder="搜索" class="menu-search">
+                                <nuxt-link to="/" class="active">
+                                    <i class="fa fa-compass"></i>
+                                    <span>发现</span>
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/">
+                                    <i class="fa fa-book"></i>
+                                    <span>关注</span>
+                                </nuxt-link>
+                            </li>
+                            <li class="user" @mouseover="notifyShow=true" @mouseout="notifyShow=false">
+                                <nuxt-link to="/">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span>消息</span>
+                                </nuxt-link>
+                                <ul class="drop-menu" v-show="notifyShow">
+                                    <li>
+                                        <nuxt-link to="">
+                                            <i class="fa fa-comment-o"></i>
+                                            评论
+                                        </nuxt-link>
+                                    </li>
+                                    <li>
+                                        <nuxt-link to="">
+                                            <i class="fa fa-envelope-o"></i>
+                                            简讯
+                                        </nuxt-link>
+                                    </li>
+                                    <li>
+                                        <nuxt-link to="">
+                                            <i class="fa fa-plus-square-o"></i>
+                                            关注
+                                        </nuxt-link>
+                                    </li>
+                                    <li>
+                                        <nuxt-link to="">
+                                            <i class="fa fa-heart-o"></i>
+                                            喜欢和赞
+                                        </nuxt-link>
+                                    </li>
+                                    <li>
+                                        <nuxt-link to="">
+                                            <i class="fa fa-ellipsis-h"></i>
+                                            其它提醒
+                                        </nuxt-link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="search">
+                                <form method="post">
+                                    <input type="text" placeholder="搜索" class="search-input">
                                     <a href="#" class="search-btn">
                                         <i class="fa fa-search"></i>
                                     </a>
                                 </form>
                             </li>
                         </ul>
-                    </transition>
-                    <ul class="nav-list">
-                        <li>
-                            <nuxt-link to="/" class="active">
-                                <i class="fa fa-compass"></i>
-                                <span>发现</span>
-                            </nuxt-link>
-                        </li>
-                        <li>
-                            <nuxt-link to="/">
-                                <i class="fa fa-book"></i>
-                                <span>关注</span>
-                            </nuxt-link>
-                        </li>
-                        <li class="user" @mouseover="notifyShow=true" @mouseout="notifyShow=false">
-                            <nuxt-link to="/">
-                                <i class="fa fa-bell-o"></i>
-                                <span>消息</span>
-                            </nuxt-link>
-                            <ul class="drop-menu" v-show="notifyShow">
-                                <li>
-                                    <nuxt-link to="">
-                                        <i class="fa fa-comment-o"></i>
-                                        评论
-                                    </nuxt-link>
-                                </li>
-                                <li>
-                                    <nuxt-link to="">
-                                        <i class="fa fa-envelope-o"></i>
-                                        简讯
-                                    </nuxt-link>
-                                </li>
-                                <li>
-                                    <nuxt-link to="">
-                                        <i class="fa fa-plus-square-o"></i>
-                                        关注
-                                    </nuxt-link>
-                                </li>
-                                <li>
-                                    <nuxt-link to="">
-                                        <i class="fa fa-heart-o"></i>
-                                        喜欢和赞
-                                    </nuxt-link>
-                                </li>
-                                <li>
-                                    <nuxt-link to="">
-                                        <i class="fa fa-ellipsis-h"></i>
-                                        其它提醒
-                                    </nuxt-link>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="search">
-                            <form method="post">
-                                <input type="text" placeholder="搜索" class="search-input">
-                                <a href="#" class="search-btn">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </nav>
