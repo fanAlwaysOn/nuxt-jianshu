@@ -173,6 +173,7 @@
     nav {
         height: 56px;
         width: 100%;
+        background: white;
     }
     .navbar {
         margin-bottom: 20px;
