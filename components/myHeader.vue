@@ -154,13 +154,6 @@
         methods: {
             showMenuList: function () {
                 this.menuListShow = !this.menuListShow;
-                // this.menuListClickNum++;
-                // var el = document.querySelector(".hidden-menu-list");
-                // if(this.menuListClickNum%2 == 0){
-                //     el.style.height = "0";
-                // }else{
-                //     el.style.height = "206px";
-                // }
             }
         }
     }
@@ -169,57 +162,47 @@
     .fade-enter-active, .fade-leave-active {
         transition: all .5s;
     }
-
     .fade-enter, .fade-leave-to {
         height: 0px;
     }
-
     .fade-enter-to, .fade-leave {
         height: 206px;
     }
-
     nav {
         height: 56px;
         width: 100%;
     }
-
     .navbar {
         margin-bottom: 20px;
         border-width: 0 0 1px;
         border-color: #f0f0f0;
         border-bottom: 1px solid #f0f0f0;
     }
-
     .navbar:before {
         content: "";
         display: table;
     }
-
     .navbar-fixed-top {
         position: fixed;
         left: 0;
         top: 0;
         z-index: 9999;
     }
-
     nav .width-limit {
         min-width: 768px;
         max-width: 1200px;
         height: 56px;
         margin: 0 auto;
     }
-
     nav .log {
         display: block;
     }
-
     nav .logo img {
         max-width: 100%;
         height: 100%;
         float: left;
         display: block;
     }
-
     nav .write-btn {
         float: right;
         width: 100px;
@@ -231,16 +214,13 @@
         background: #ea6f5a;
         text-align: center;
     }
-
     nav .write-btn:hover {
         background-color: #ec6149;
     }
-
     nav .user {
         position: relative;
         float: right;
     }
-
     nav .user .avatar {
         width: 40px;
         height: 40px;
@@ -248,11 +228,9 @@
         display: block;
         position: relative;
     }
-
     nav .user .drop-down:hover {
         background: #f5f5f5;
     }
-
     nav .user .avatar:before {
         content: "";
         position: absolute;
@@ -262,36 +240,31 @@
         border-right: 5px solid transparent;
         border-top: 5px solid #999;
     }
-
     nav .user .avatar img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
         border: 1px solid #eee;
     }
-
     nav .user .drop-menu {
         position: absolute;
         left: 0;
         box-shadow: 0 0 8px rgba(0, 0, 0, .1);
         min-width: 160px;
-        z-index: 999;
         margin: 0;
         padding: 10px 0px;
         font-size: 15px;
         z-index: 9999;
+        background: white;
     }
-
     nav .user .drop-menu li a {
         padding: 10px 20px;
         display: block;
         line-height: 30px;
     }
-
     nav .user .drop-menu li a:hover {
         background: #f5f5f5;
     }
-
     nav .user .drop-menu li a i {
         margin-right: 15px;
         color: #ea6f5a;
@@ -300,26 +273,22 @@
         font-size: 20px;
         display: inline-block;
     }
-
     /********隐藏********/
     nav .menu {
         display: none;
     }
-
     nav .menu > i {
         padding: 5px;
     }
-
     nav .menu > i:hover {
         padding: 5px;
         border: 1px solid #eee;
         background: #eee;
     }
-
     nav .hidden-menu-list {
         width: 100%;
         margin: 0;
-        z-index: 999;
+        z-index: -999;
         background-color: white;
         display: flex;
         justify-content: center;
@@ -328,7 +297,6 @@
         left: 0;
         top: 56px;
     }
-
     nav .hidden-menu-list li {
         width: 100%;
         font-size: 20px;
@@ -337,12 +305,10 @@
         padding: 10px;
         border-bottom: 1px solid #eee;
     }
-
     nav .hidden-menu-list li:nth-of-type(-n+3):hover {
         background: #eee;
         cursor: pointer;
     }
-
     nav .hidden-menu-list li input {
         height: 38px;
         width: 100%;
@@ -353,7 +319,6 @@
         border-radius: 40px;
         position: relative;
     }
-
     nav .hidden-menu-list .search-btn {
         position: absolute;
         width: 30px;
@@ -364,13 +329,11 @@
         text-align: center;
         padding: 0;
     }
-
     nav .hidden-menu-list .menu-search:focus + .search-btn {
         background: rgb(150, 150, 150);
         color: #fff;
         border-radius: 50%;
     }
-
     nav .hidden-menu-list .menu-search i {
         display: block !important;
         margin: 0;
@@ -379,11 +342,9 @@
         font-size: 14px;
 
     }
-
     nav .nav-list {
         margin: 0;
     }
-
     nav .nav-list:after {
         content: '';
         height: 0;
@@ -391,44 +352,36 @@
         visibility: hidden;
         clear: both;
     }
-
     nav .nav-list > li {
         float: left;
         margin-right: 5px;
     }
-
     nav .nav-list > li a {
         display: block;
         height: 56px;
         /*line-height: 26px;*/
         padding: 15px;
     }
-
     nav .nav-list > li a.active {
         color: #ea6f5a;
         background: none !important;
     }
-
     nav .nav-list > li a:hover {
         background: #f5f5f5;
     }
-
     nav .nav-list > li a i {
         margin-right: 5px;
         font-size: 20px;
     }
-
     nav .nav-list .search {
         padding-left: 15px;
         margin-left: 10px;
     }
-
     nav .nav-list .search form {
         position: relative;
         margin-bottom: 20px;
         top: 9px;
     }
-
     nav .nav-list .search form .search-input {
         width: 240px;
         height: 38px;
@@ -439,21 +392,17 @@
         border-radius: 40px;
         transition: width .5s;
     }
-
     nav .nav-list .search form .search-input:focus {
         width: 320px;
     }
-
     nav .nav-list .search form .search-input:focus + .search-btn {
         background: #969696;
         color: #fff;
         border-radius: 50%;
     }
-
     nav .nav-list .search form .search-input:blur {
         width: 240px;
     }
-
     nav .nav-list .search form .search-btn {
         position: absolute;
         width: 30px;
@@ -464,11 +413,9 @@
         text-align: center;
         padding: 0;
     }
-
     nav .nav-list .search form .search-btn:hover {
         background: none;
     }
-
     nav .nav-list .search form .search-btn i {
         display: block !important;
         margin: 0;
