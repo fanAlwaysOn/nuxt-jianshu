@@ -303,17 +303,18 @@
                         <div class="recommended-authors">
                             <div class="title">
                                 <span>推荐作者</span>
-                                <nuxt-link to="" class="page-change">
-                                    <i class="fa fa-refresh"></i>换一批
-                                </nuxt-link>
+                                <span to="/" class="page-change" @click="reAuthorRefresh()">
+                                    <i class="fa fa-refresh fa-rotate-180"></i> 换一批
+                                </span>
                             </div>
                             <ul class="recommended-list">
                                 <li>
                                     <nuxt-link class="avatar" to="/">
                                         <img src="~assets/img/default-avatar.jpg" alt="">
                                     </nuxt-link>
-                                    <a href="" class="follow">
-                                        <i class="fa fa-plus"></i> 关注
+                                    <a href="#" :class="isFollowShow?'follow':'following'" @click="isFollowShow=!isFollowShow" @mouseenter="!isFollowShow&&isCancel?isCancel=false:isCancel=true" @mouseleave="!isFollowShow&&isCancel?isCancel=true:isCancel=!isCancel">
+                                        <i :class='isFollowShow?"fa fa-plus":(isCancel?"fa fa-check":"fa fa-close")'></i>
+                                        {{isFollowShow?"关注":isCancel?"已关注":"取消关注"}}
                                     </a>
                                     <nuxt-link to="/" class="name">简书用户</nuxt-link>
                                     <p>写了1958k字，1.9k喜欢</p>
@@ -407,8 +408,19 @@ import myHeader from "../components/myHeader.vue"
         },
         data () {
             return {
-                name:'首页'
+                name:'首页',
+                isFollowShow:true,
+                isCancel:true,
+                rotateCount:1,
             }
+        },
+        methods:{
+            reAuthorRefresh:function () {
+                var i = document.querySelector(".fa-refresh");
+                console.log(i.style.transform)
+                i.style.transform = "rotate("+this.rotateCount*360+"deg)"
+                this.rotateCount++;
+            },
         }
     }
 </script>
