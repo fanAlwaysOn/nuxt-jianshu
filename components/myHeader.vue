@@ -20,7 +20,7 @@
                     </div>
                     <ul class="drop-menu" v-show="UserShow">
                         <li>
-                            <nuxt-link to="">
+                            <nuxt-link to="/users/home">
                                 <i class="fa fa-home"></i>
                                 我的主页
                             </nuxt-link>
