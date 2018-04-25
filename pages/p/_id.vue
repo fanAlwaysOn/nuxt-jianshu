@@ -50,6 +50,35 @@
                         </p>
                     </div>
                 </div>
+                <!--赞赏与支持-->
+                <div class="support-author">
+                    <p>小礼物走一走，来简书关注我</p>
+                    <div class="btn btn-pay">赞赏支持</div>
+                    <div class="supporter">
+                        <ul class="support-list">
+                            <li>
+                                <nuxt-link to="/" class="avatar">
+                                    <img src="~assets/img/c1.jpg" alt="">
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/" class="avatar">
+                                    <img src="~assets/img/c2.jpg" alt="">
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/" class="avatar">
+                                    <img src="~assets/img/c3.jpg" alt="">
+                                </nuxt-link>
+                            </li>
+                            <li>
+                                <nuxt-link to="/" class="avatar">
+                                    <img src="~assets/img/c4.jpg" alt="">
+                                </nuxt-link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <!--底部文章分类信息和版权-->
                 <div class="show-foot">
                     <nuxt-link to="" class="notebook">
