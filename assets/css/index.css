@@ -427,13 +427,19 @@
     margin-bottom: 80px;
 }
 .note .post .meta-bottom .like{
-    display: inline-block;
-    position: relative;
-    border: 1px solid #ea6f5a;
-    border-radius: 40px;
+     display: inline-block;
+     position: relative;
+     border: 1px solid #ea6f5a;
+     border-radius: 40px;
+ }
+.note .post .meta-bottom .clickLike{
+    background: #ea6f5a;
 }
-.note .post .meta-bottom .like:hover{
-    background: rgb(254,246,247);
+/*.note .post .meta-bottom .like:hover{*/
+    /*background: rgb(254,246,247);*/
+/*}*/
+.note .post .meta-bottom .changeColor{
+    color: white;
 }
 .note .post .meta-bottom .like .like-btn{
     padding: 13px 0 15px 0;
@@ -451,6 +457,31 @@
     background-position: left;
     background-repeat: no-repeat;
     background-size: 1000px 50px;
+    /*animation: clickHeart 1s;*/
+}
+.note .post .meta-bottom .like .like-btn1:before{
+    animation: clickHeart .2s;
+    background-position: right;
+}
+/*.note .post .meta-bottom .like1{*/
+    /*animation: clickHeart 1s linear;*/
+/*}*/
+@keyframes clickHeart {
+    0%{
+        background-position: left;
+    }
+    5%{
+        background-position: 15%;
+    }
+    25%{
+        background-position: center;
+    }
+    85%{
+        background-position: 75%;
+    }
+    100%{
+        background-position: right;
+    }
 }
 .note .post .meta-bottom .like .like-btn a{
     padding: 18px 30px 18px 55px;

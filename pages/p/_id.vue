@@ -107,12 +107,12 @@
                 </div>
                 <!--更多分享-->
                 <div class="meta-bottom">
-                    <div class="like">
-                        <div class="like-btn">
-                            <a href="#">喜欢</a>
+                    <div :class="isClickLike?'like clickLike':'like'" @click="clickLike">
+                        <div :class="isClickLike?'like-btn like-btn1':'like-btn'">
+                            <a href="#" :style="isClickLike?'color:white':'color:#ea6f5a'">喜欢</a>
                         </div>
-                        <div class="like-num">
-                            <a href="#">50</a>
+                        <div class="like-num" :style="isClickLike?'border-left:1px solid white;':''">
+                            <a href="#":style="isClickLike?'color:white':'color:#ea6f5a'">{{likeNum}}</a>
                         </div>
                     </div>
                     <div class="share">
@@ -154,8 +154,24 @@
             myComment
         },
         data() {
-            return {}
+            return {
+                likeNum:50,
+                isClickLike:false
+            }
         },
+        methods:{
+            clickLike:function () {
+                var likeBtn = document.querySelector(".like-btn");
+                if(this.isClickLike){
+                    this.likeNum--;
+                }else{
+                    this.likeNum++;
+                    // likeBtn.style.animation = "clickHeart 1s"
+                }
+                this.isClickLike = !this.isClickLike;
+
+            }
+        }
     }
 </script>
 

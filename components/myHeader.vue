@@ -96,7 +96,7 @@
                                 </nuxt-link>
                                 <ul class="drop-menu" v-show="notifyShow">
                                     <li>
-                                        <nuxt-link to="">
+                                        <nuxt-link to="/message/comment">
                                             <i class="fa fa-comment-o"></i>
                                             评论
                                         </nuxt-link>
