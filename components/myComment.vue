@@ -38,7 +38,9 @@
                 <div class="comment-wrap">
                     <p>支持一下，消灭零评论</p>
                     <div class="tool-group">
-                        <a href="#" class="like-btn"><span>1人赞</span></a>
+                        <a href="#" class="like-btn" :class="isZan?'like-btn1':''" @click="isZan=!isZan">
+                            <span :class="isZan?'span':''">{{isZan?12:11}}人赞</span>
+                        </a>
                         <a href="#" class="comment-btn">
                             <i class="fa fa-comment-o"></i>
                             <span>回复</span>
@@ -216,6 +218,7 @@
                         user_id:3160769
                     }
                 ],
+                isZan:false,
             }
         }
     }
@@ -367,6 +370,12 @@
         color: #969696;
         position: relative;
     }
+    .comment-list .comment .comment-wrap .like-btn:hover span{
+        color: #333;
+    }
+    .comment-list .comment .comment-wrap .like-btn:hover:before{
+        background-position: -50px;
+    }
     .comment-list .comment .comment-wrap .like-btn:before{
         content: '';
         width: 50px;
@@ -379,9 +388,23 @@
         background-position: left;
         background-size: 1050px 50px;
     }
+    .comment-list .comment .comment-wrap .like-btn1:before{
+        animation: clickZan .6s steps(20) forwards;
+    }
+    @keyframes clickZan {
+        0%{
+            background-position: left;
+        }
+        100%{
+            background-position: right;
+        }
+    }
     .comment-list .comment .comment-wrap .like-btn span{
         font-size: 14px;
         color: #969696;
+    }
+    .comment-list .comment .comment-wrap .like-btn .span{
+        color: #333;
     }
     .comment-list .comment .comment-wrap .comment-btn{
         font-size: 14px;

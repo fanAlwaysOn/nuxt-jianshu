@@ -107,26 +107,58 @@
                 </div>
                 <!--更多分享-->
                 <div class="meta-bottom">
-                    <div :class="isClickLike?'like clickLike':'like'" @click="clickLike">
+                    <div :class="isClickLike?'like clickLike':'like'" @click="isClickLike=!isClickLike">
                         <div :class="isClickLike?'like-btn like-btn1':'like-btn'">
                             <a href="#" :style="isClickLike?'color:white':'color:#ea6f5a'">喜欢</a>
                         </div>
                         <div class="like-num" :style="isClickLike?'border-left:1px solid white;':''">
-                            <a href="#":style="isClickLike?'color:white':'color:#ea6f5a'">{{likeNum}}</a>
+                            <a href="#":style="isClickLike?'color:white':'color:#ea6f5a'">{{isClickLike?50:49}}</a>
                         </div>
                     </div>
                     <div class="share">
-                        <a href="#" class="share-btn">
+                        <a href="#" class="share-btn" @mouseenter="whichLogin='weixin'"  @mouseleave="whichLogin=''">
                             <i class="fa fa-weixin"></i>
+                            <div class="title" v-show="whichLogin=='weixin'">
+                                分享到微信
+                                <span class="triangle"></span>
+                            </div>
                         </a>
-                        <a href="#" class="share-btn">
+                        <a href="#" class="share-btn" @mouseenter="whichLogin='weibo'"  @mouseleave="whichLogin=''">
                             <i class="fa fa-weibo"></i>
+                            <div class="title" v-show="whichLogin=='weibo'">
+                                分享到微博
+                                <span class="triangle"></span>
+                            </div>
                         </a>
-                        <a href="#" class="share-btn">
+                        <a href="#" class="share-btn" @mouseenter="whichLogin='qq'"  @mouseleave="whichLogin=''">
                             <i class="fa fa-qq"></i>
+                            <div class="title" v-show="whichLogin=='qq'">
+                                分享到QQ
+                                <span class="triangle"></span>
+                            </div>
                         </a>
-                        <a href="#" class="more-share">
-                            更多分享
+                        <a href="#" class="more-share" @click="whichLogin='more'">
+                            <span>更多分享</span>
+                            <div v-show="whichLogin=='more'" class="title">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-qq"></i>分享到QQ空间
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-twitter"></i>分享到Twitter
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-facebook"></i>分享到Facebook
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-google"></i>分享到Google
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-weixin"></i>分享到豆瓣
+                                    </li>
+                                </ul>
+                                <span></span>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -155,23 +187,11 @@
         },
         data() {
             return {
-                likeNum:50,
-                isClickLike:false
+                isClickLike:false,
+                whichLogin:'',
             }
         },
-        methods:{
-            clickLike:function () {
-                var likeBtn = document.querySelector(".like-btn");
-                if(this.isClickLike){
-                    this.likeNum--;
-                }else{
-                    this.likeNum++;
-                    // likeBtn.style.animation = "clickHeart 1s"
-                }
-                this.isClickLike = !this.isClickLike;
-
-            }
-        }
+        methods:{}
     }
 </script>
 

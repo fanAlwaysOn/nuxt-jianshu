@@ -457,27 +457,13 @@
     background-position: left;
     background-repeat: no-repeat;
     background-size: 1000px 50px;
-    /*animation: clickHeart 1s;*/
 }
 .note .post .meta-bottom .like .like-btn1:before{
-    animation: clickHeart .2s;
-    background-position: right;
+    animation: clickHeart .6s steps(19) forwards;
 }
-/*.note .post .meta-bottom .like1{*/
-    /*animation: clickHeart 1s linear;*/
-/*}*/
 @keyframes clickHeart {
     0%{
         background-position: left;
-    }
-    5%{
-        background-position: 15%;
-    }
-    25%{
-        background-position: center;
-    }
-    85%{
-        background-position: 75%;
     }
     100%{
         background-position: right;
@@ -511,6 +497,27 @@
     border-radius: 50%;
     margin-left: 5px;
     vertical-align: middle;
+    position: relative;
+}
+.note .post .meta-bottom .share .share-btn .title{
+    position: absolute;
+    bottom: 59px;
+    left: -20px;
+    display: block;
+    width: 90px;
+    padding: 4px 7px;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.note .post .meta-bottom .share .share-btn .title .triangle{
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #333;
+    position: absolute;
+    top: 27px;
+    left: 40px;
 }
 .note .post .meta-bottom .share .share-btn i{
     font-size: 24px;
@@ -539,4 +546,61 @@
     color: #9b9b9b;
     text-align: center;
     border: 1px solid #dcdcdc;
+    position: relative;
+}
+.note .post .meta-bottom .share .more-share .title{
+    position: absolute;
+    bottom: 65px;
+    left: -25px;
+    width: 150px;
+    padding: 4px 7px;
+    background: #fff;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0px 2px #aaa;
+    border: 1px solid #dcdcdc;
+}
+.note .post .meta-bottom .share .more-share .title ul{
+    overflow: auto;
+    margin: 0;
+}
+.note .post .meta-bottom .share .more-share .title li{
+    white-space: nowrap;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+.note .post .meta-bottom .share .more-share .title li:hover{
+    background: #dcdcdc;
+}
+.note .post .meta-bottom .share .more-share .title li i{
+    margin-right: 5px;
+}
+.share .more-share .title li i.fa-qq{
+    color: yellow;
+}
+.share .more-share .title li i.fa-twitter{
+    color: lightblue;
+}
+.share .more-share .title li i.fa-qq{
+    color: yellow;
+}
+.share .more-share .title li i.fa-google{
+    color: orange;
+}
+.share .more-share .title li i.fa-weixin{
+    color: green;
+}
+.note .post .meta-bottom .share .more-share .title span{
+    width: 8px;
+    height: 8px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #dcdcdc;
+    position: absolute;
+    bottom: -12px;
+    left: 63px;
+    z-index: 9999;
 }
