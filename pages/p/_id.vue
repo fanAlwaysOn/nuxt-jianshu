@@ -1,7 +1,7 @@
 <template>
     <div>
         <my-header></my-header>
-        <div class="note">
+        <div class="note" @click.self="moreLogin=false">
             <div class="post">
                 <!--文章正文-->
                 <div class="article">
@@ -116,49 +116,72 @@
                         </div>
                     </div>
                     <div class="share">
-                        <a href="#" class="share-btn" @mouseenter="whichLogin='weixin'"  @mouseleave="whichLogin=''">
+                        <!--<a href="#" class="share-btn" @mouseenter="whichLogin='weixin'"  @mouseleave="whichLogin=''">-->
+                        <a href="#" class="share-btn" v-tooltip="'分享到微信'">
                             <i class="fa fa-weixin"></i>
-                            <div class="title" v-show="whichLogin=='weixin'">
-                                分享到微信
-                                <span class="triangle"></span>
-                            </div>
+                            <!--<div class="title" v-show="whichLogin=='weixin'">-->
+                                <!--分享到微信-->
+                                <!--<span class="triangle"></span>-->
+                            <!--</div>-->
                         </a>
-                        <a href="#" class="share-btn" @mouseenter="whichLogin='weibo'"  @mouseleave="whichLogin=''">
+                        <a href="#" class="share-btn" v-tooltip="'分享到微博'">
                             <i class="fa fa-weibo"></i>
-                            <div class="title" v-show="whichLogin=='weibo'">
-                                分享到微博
-                                <span class="triangle"></span>
-                            </div>
+                            <!--<div class="title" v-show="whichLogin=='weibo'">-->
+                                <!--分享到微博-->
+                                <!--<span class="triangle"></span>-->
+                            <!--</div>-->
                         </a>
-                        <a href="#" class="share-btn" @mouseenter="whichLogin='qq'"  @mouseleave="whichLogin=''">
+                        <a href="#" class="share-btn" v-tooltip="'分享到qq'">
                             <i class="fa fa-qq"></i>
-                            <div class="title" v-show="whichLogin=='qq'">
-                                分享到QQ
-                                <span class="triangle"></span>
-                            </div>
+                            <!--<div class="title" v-show="whichLogin=='qq'">-->
+                                <!--分享到QQ-->
+                                <!--<span class="triangle"></span>-->
+                            <!--</div>-->
                         </a>
-                        <a href="#" class="more-share" @click="whichLogin='more'">
-                            <span>更多分享</span>
-                            <div v-show="whichLogin=='more'" class="title">
-                                <ul>
-                                    <li>
-                                        <i class="fa fa-qq"></i>分享到QQ空间
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-twitter"></i>分享到Twitter
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-facebook"></i>分享到Facebook
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-google"></i>分享到Google
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-weixin"></i>分享到豆瓣
-                                    </li>
-                                </ul>
-                                <span></span>
-                            </div>
+                        <a href="#" class="more-share" @click="moreLogin=true">
+                            <v-popover offset="15">
+                                <span>更多分享</span>
+                                <template slot="popover">
+                                    <ul>
+                                        <li>
+                                            <i class="fa fa-qq"></i>分享到QQ空间
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-twitter"></i>分享到Twitter
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-facebook"></i>分享到Facebook
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-google"></i>分享到Google
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-github"></i>分享到豆瓣
+                                        </li>
+                                    </ul>
+                                    <!--<ExampleComponent char="="/>-->
+                                </template>
+                            </v-popover>
+                            <!--<div v-show="moreLogin" class="title">-->
+                                <!--<ul>-->
+                                    <!--<li>-->
+                                        <!--<i class="fa fa-qq"></i>分享到QQ空间-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="fa fa-twitter"></i>分享到Twitter-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="fa fa-facebook"></i>分享到Facebook-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="fa fa-google"></i>分享到Google-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<i class="fa fa-weixin"></i>分享到豆瓣-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                                <!--<span></span>-->
+                            <!--</div>-->
                         </a>
                     </div>
                 </div>
@@ -189,6 +212,7 @@
             return {
                 isClickLike:false,
                 whichLogin:'',
+                moreLogin:false
             }
         },
         methods:{}

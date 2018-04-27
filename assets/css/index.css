@@ -498,6 +498,7 @@
     margin-left: 5px;
     vertical-align: middle;
     position: relative;
+    z-index: 999;
 }
 .note .post .meta-bottom .share .share-btn .title{
     position: absolute;
@@ -510,6 +511,7 @@
     color: white;
     border-radius: 5px;
     font-size: 14px;
+    z-index: 999;
 }
 .note .post .meta-bottom .share .share-btn .title .triangle{
     border-left: 5px solid transparent;
@@ -547,6 +549,12 @@
     text-align: center;
     border: 1px solid #dcdcdc;
     position: relative;
+}
+.note .post .meta-bottom .share .more-share .v-popover{
+    display: inline-block;
+}
+.note .post .meta-bottom .share .more-share .v-popover span{
+    position: relative!important;
 }
 .note .post .meta-bottom .share .more-share .title{
     position: absolute;
@@ -603,4 +611,51 @@
     bottom: -12px;
     left: 63px;
     z-index: 9999;
+}
+.wrapper{
+    /*position: relative!important;*/
+}
+.tooltip{
+    font-size: 14px;
+}
+.tooltip-inner.popover-inner{
+    padding: 10px!important;
+    background: #fff!important;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0px 7px 20px rgba(0,0,0,.3);
+}
+.popover-arrow{
+    /*border: 8px solid #dcdcdc!important;*/
+    border-color: #fff!important;
+    /*position: absolute;*/
+    /*bottom:-18px!important;*/
+}
+.tooltip-inner.popover-inner>div>ul{
+    margin: 0px;
+}
+.tooltip-inner.popover-inner>div>ul>li{
+    padding: 5px;
+    font-size: 14px;
+}
+.tooltip-inner.popover-inner>div>ul>li:hover{
+    background: #dcdcdc;
+}
+.tooltip-inner.popover-inner>div>ul>li i{
+    margin-right: 8px;
+    width: 14px;
+}
+.tooltip-inner.popover-inner>div>ul>li i.fa-qq{
+    color: yellow;
+}
+.tooltip-inner.popover-inner>div>ul>li i.fa-twitter{
+    color: lightblue;
+}
+.tooltip-inner.popover-inner>div>ul>li i.fa-qq{
+    color: yellow;
+}
+.tooltip-inner.popover-inner>div>ul>li i.fa-google{
+    color: orange;
+}
+.tooltip-inner.popover-inner>div>ul>li i.fa-github{
+    color: green;
 }
