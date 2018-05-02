@@ -1,6 +1,6 @@
 <template>
     <div>
-        <my-header></my-header>
+        <my-header title="find"></my-header>
         <div class="container index">
             <div class="row">
                 <div class="col-xs-16 main">

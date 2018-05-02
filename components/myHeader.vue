@@ -84,7 +84,7 @@
                                 </nuxt-link>
                             </li>
                             <li @click="navList='watch'">
-                                <nuxt-link to="/watch" :class="navList=='watch'?'active':''">
+                                <nuxt-link to="/watch/watch" :class="navList=='watch'?'active':''">
                                     <i class="fa fa-book"></i>
                                     <span>关注</span>
                                 </nuxt-link>
@@ -146,19 +146,22 @@
 <script>
     export default {
         name: "myHeadder",
+        props:["title"],
         data: function () {
             return {
                 UserShow: false,
                 notifyShow: false,
                 menuListShow: false,
-                navList:'find',
-                // menuListClickNum:0,
+                navList:'',
             }
         },
         methods: {
             showMenuList: function () {
                 this.menuListShow = !this.menuListShow;
             }
+        },
+        mounted:function () {
+            this.navList=this.title;
         }
     }
 </script>
