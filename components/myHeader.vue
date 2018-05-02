@@ -77,20 +77,21 @@
                             </ul>
                         </transition>
                         <ul class="nav-list">
-                            <li>
-                                <nuxt-link to="/" class="active">
+                            <li @click="navList='find'">
+                                <nuxt-link to="/" :class="navList=='find'?'active':''">
                                     <i class="fa fa-compass"></i>
                                     <span>发现</span>
                                 </nuxt-link>
                             </li>
-                            <li>
-                                <nuxt-link to="/">
+                            <li @click="navList='watch'">
+                                <nuxt-link to="/watch" :class="navList=='watch'?'active':''">
                                     <i class="fa fa-book"></i>
                                     <span>关注</span>
                                 </nuxt-link>
                             </li>
-                            <li class="user" @mouseover="notifyShow=true" @mouseout="notifyShow=false">
-                                <nuxt-link to="/">
+                            <li class="user" @mouseover="notifyShow=true" @mouseout="notifyShow=false"
+                                @click="navList='message'">
+                                <nuxt-link to="/message/comment" :class="navList=='message'?'active':''">
                                     <i class="fa fa-bell-o"></i>
                                     <span>消息</span>
                                 </nuxt-link>
@@ -150,6 +151,7 @@
                 UserShow: false,
                 notifyShow: false,
                 menuListShow: false,
+                navList:'find',
                 // menuListClickNum:0,
             }
         },
