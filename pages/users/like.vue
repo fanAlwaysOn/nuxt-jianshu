@@ -43,27 +43,14 @@
                         </div>
                     </div>
                     <ul>
-                        <li @click="selectMenu='userArticle'" :class="selectMenu=='userArticle'?'active':''">
-                            <i class="fa fa-table"></i>
-                            文章
+                        <li @click="selectMenu='followed'" :class="selectMenu=='followed'?'active':''">
+                            关注的专题/文集/连载 4
                         </li>
-                        <li @click="selectMenu='userDynanic'" :class="selectMenu=='userDynanic'?'active':''">
-                            <i class="fa fa-dashboard"></i>
-                            动态
-                        </li>
-                        <li @click="selectMenu='userComment'" :class="selectMenu=='userComment'?'active':''">
-                            <i class="fa fa-comments"></i>
-                            最新评论
-                        </li>
-                        <li @click="selectMenu='userHot'" :class="selectMenu=='userHot'?'active':''">
-                            <i class="fa fa-fire"></i>
-                            热门
+                        <li @click="selectMenu='likes'" :class="selectMenu=='likes'?'active':''">
+                            喜欢的文章
                         </li>
                     </ul>
-                    <!--<transition enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutLeft" mode="out-in">-->
-                    <!--<transition name="fade">-->
-                        <component :is="selectMenu"></component>
-                    <!--</transition>-->
+                    <component :is="selectMenu"></component>
                 </div>
                 <!--侧边栏-->
                 <div class="col-xs-offset-1 col-xs-7 aside">
@@ -86,30 +73,24 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
     import myHeader from '~/components/myHeader'
-    import userArticle from '~/components/userArticle'
-    import userDynanic from '~/components/userDynanic'
-    import userComment from '~/components/userComment'
-    import userHot from '~/components/userHot'
-
+    import followed from '~/components/userLikeFollowed/followed'
+    import likes from '~/components/userLikeFollowed/likes'
     export default {
-        name: "home",
-        components: {
+        name: "like",
+        components:{
             myHeader,
-            userArticle,
-            userDynanic,
-            userComment,
-            userHot
+            followed,
+            likes
         },
-        data() {
-            return {
-                selectMenu: 'userArticle',
+        data(){
+            return{
+                selectMenu:'likes'
             }
-        }
+        },
     }
 </script>
 
@@ -119,6 +100,7 @@
     }
     .index .row .main>ul{
         margin: 0;
+        border-bottom: 1px solid #f5f5f5;
     }
     .index .row .main>ul>li{
         display: inline-block;
@@ -136,8 +118,6 @@
         height: 80px;
     }
     .index .row .main .img img{
-        /*width: 100%;*/
-        /*height: 100%;*/
         border-radius: 50%;
         vertical-align: middle;
         display: inline-block;
@@ -201,33 +181,4 @@
     .fade-enter, .fade-leave-to {
         width: 0px;
     }
-
-    /*.fade-enter-active {*/
-    /*animation: inn 2s;*/
-    /*}*/
-
-    /*.fade-leave-active {*/
-    /*animation: out .5s;*/
-    /*}*/
-
-    /*@keyframes inn {*/
-    /*0% {*/
-    /*transform: translate(100%);*/
-    /*}*/
-    /*50%{*/
-    /*transform:translate(50%);*/
-    /*}*/
-    /*100% {*/
-    /*transform: translate(0%);*/
-    /*}*/
-    /*}*/
-
-    /*@keyframes out {*/
-    /*0% {*/
-    /*transform: translateX(0%);*/
-    /*}*/
-    /*100% {*/
-    /*transform: translateX(-100%);*/
-    /*}*/
-    /*}*/
 </style>

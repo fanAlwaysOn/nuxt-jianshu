@@ -1,0 +1,18 @@
+<template>
+    <div>
+        你可以在用户主页将用户加入你的黑名单。在你黑名单中的用户无法在你文章下评论，无法在其它评论中提到你，无法给你发送简信，自动从你的粉丝列表移除且无法再关注你。
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "forbidden"
+    }
+</script>
+
+<style scoped>
+    div{
+        color: gray;
+        font-size: 13px;
+    }
+</style>

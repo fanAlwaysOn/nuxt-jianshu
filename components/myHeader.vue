@@ -26,19 +26,19 @@
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/user/123/like">
+                            <nuxt-link to="/users/like">
                                 <i class="fa fa-heart"></i>
                                 喜欢的文章
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/bookmarks">
+                            <nuxt-link to="/users/collected">
                                 <i class="fa fa-bookmark"></i>
                                 收藏的文章
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="">
+                            <nuxt-link to="/users/setting">
                                 <i class="fa fa-cog"></i>
                                 设置
                             </nuxt-link>
